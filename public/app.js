@@ -57,13 +57,15 @@ async function handleLogin(e) {
 
 function showRegistrationForm() {
     const registrationForm = `
-        <h2>Register</h2>
+     <div id="register-for">
+        <h2 class= "loginH">Register</h2>
         <form id="register-form">
             <input type="text" id="register-username" placeholder="Username" required>
             <input type="password" id="register-password" placeholder="Password" required>
             <button type="submit">Register</button>
         </form>
         <p>Already have an account? <a href="#" id="show-login">Login</a></p>
+     </div>
     `;
 
     authContainer.innerHTML = registrationForm;
@@ -73,7 +75,7 @@ function showRegistrationForm() {
 
 function showLoginForm() {
     authContainer.innerHTML = `
-        <h2>Login</h2>
+        <h2 class= "loginH">Login</h2>
         <form id="login-form">
             <input type="text" id="login-username" placeholder="Username" required>
             <input type="password" id="login-password" placeholder="Password" required>
@@ -121,7 +123,7 @@ function showTaskContainer() {
     authContainer.style.display = 'none';
     taskContainer.style.display = 'block';
     userInfo.innerHTML = `
-        <span>Welcome, User!</span>
+        <span>Welcome!</span>
         <button id="logout-btn">Logout</button>
     `;
     document.getElementById('logout-btn').addEventListener('click', handleLogout);
@@ -157,12 +159,14 @@ function renderTasks(tasks) {
         const li = document.createElement('li');
         li.className = 'task-item';
         li.innerHTML = `
-            <h3>${task.title}</h3>
+           <h3>${task.title}</h3>
             <p>${task.description}</p>
-            <p>Priority: ${task.priority}</p>
+            <p>Priority: <span class="priority">${task.priority}</span></p>
             <p>Deadline: ${new Date(task.deadline).toLocaleDateString()}</p>
-            <button class="edit-btn" data-id="${task._id}">Edit</button>
-            <button class="delete-btn" data-id="${task._id}">Delete</button>
+            <div class="task-actions">
+                <button class="edit-btn" data-id="${task._id}" title="Edit Task"></button>
+                <button class="delete-btn" data-id="${task._id}" title="Delete Task"></button>
+            </div>
         `;
         taskList.appendChild(li);
     });
