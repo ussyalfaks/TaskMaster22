@@ -1,61 +1,185 @@
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --background-color: #ecf0f1;
+    --text-color: #2c3e50;
+    --input-background: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --transition-speed: 0.3s;
+  }
+  
+  * {
     margin: 0;
     padding: 0;
-}
-
-#app {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-h1, h2 {
-    margin-bottom: 10px;
-}
-
-form {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+  
+  #app {
+    width: 100%;
+    min-height: 100vh;
+  }
+  
+  header {
+    background-color: var(--input-background);
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 4px var(--shadow-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  
+  h1 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+  }
+  
+  #auth-container, #task-container {
+    background-color: var(--input-background);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px var(--shadow-color);
+    margin-bottom: 2rem;
+  }
+  
+  .loginH {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+  }
+  
+  .register {
+    margin-bottom: 2rem;
+    color: var(--text-color);
+  }
+  
+  .register a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color var(--transition-speed);
+  }
+  
+  .register a:hover {
+    color: var(--accent-color);
+  }
+  
+  form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-input, textarea, select, button {
-    padding: 5px;
-}
-
-button {
-    cursor: pointer;
-}
-
-#task-filters {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 10px;
-}
-
-#task-list {
-    list-style-type: none;
-    padding: 0;
-}
-
-.task-item {
-    background-color: #f4f4f4;
-    padding: 10px;
-    margin-bottom: 10px;
+    gap: 1rem;
+    max-width: 600px;
+  }
+  
+  input, textarea, select {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
     border-radius: 5px;
-}
-
-.task-item button {
-    margin-left: 10px;
-}
-
+    font-size: 1rem;
+    transition: border-color var(--transition-speed);
+    width: 100%;
+  }
+  
+  input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+  }
+  
+  button {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color var(--transition-speed);
+    width: 100%;
+  }
+  
+  button:hover {
+    background-color: var(--accent-color);
+  }
+  
+  #task-filters {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+    background-color: var(--input-background);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px var(--shadow-color);
+  }
+  
+  #task-list {
+    list-style: none;
+    margin-top: 2rem;
+  }
+  
+  /* Priority Colors */
+  .priority-low { border-left: 4px solid #2ecc71; }
+  .priority-medium { border-left: 4px solid #f1c40f; }
+  .priority-high { border-left: 4px solid #e74c3c; }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    main {
+      padding: 0 1rem;
+      margin: 1rem auto;
+    }
+  
+    header {
+      padding: 1rem;
+    }
+  
+    h1 {
+      font-size: 1.5rem;
+    }
+  
+    #auth-container, #task-container {
+      padding: 1.5rem;
+    }
+  
+    #task-filters {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /* Dark mode support */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --primary-color: #ecf0f1;
+      --background-color: #2c3e50;
+      --text-color: #ecf0f1;
+      --input-background: #34495e;
+      --shadow-color: rgba(0, 0, 0, 0.3);
+    }
+  
+    input, textarea, select {
+      background-color: var(--input-background);
+      color: var(--text-color);
+      border-color: #456789;
+    }
+  
+    input::placeholder, textarea::placeholder {
+      color: rgba(255, 255, 255, 0.6);
+    }
+  }
