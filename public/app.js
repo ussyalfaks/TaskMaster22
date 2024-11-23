@@ -38,6 +38,8 @@ async function handleLogin(e) {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username, password }),
+            credentials: 'include',
+
         });
 
         if (!response.ok) {
@@ -94,6 +96,8 @@ async function handleRegister(e) {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username, password }),
+            credentials: 'include',
+
         });
 
         if (!response.ok) {
@@ -185,8 +189,11 @@ async function handleAddTask(e) {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`,
+
             },
             body: JSON.stringify({ title, description, deadline, priority }),
+            credentials: 'include',
+
         });
 
         if (!response.ok) {
@@ -227,6 +234,8 @@ async function handleEditTask(e) {
                     priority: updatedPriority,
                     deadline: updatedDeadline,
                 }),
+                credentials: 'include',
+
             });
 
             if (!response.ok) {
