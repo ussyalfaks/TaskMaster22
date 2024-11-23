@@ -47,6 +47,25 @@ body {
   padding: 0;
   margin: 0;
 }
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* CSS */
+.button-90 {
+  color: #fff;
+  padding: 15px 25px;
+  border-radius: 100px;
+  background-color: #4C43CD;
+  box-shadow: 2px 19px 31px rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+  font-size: 16px;
+  border: 0;
+  cursor: pointer;
+}
 .menu-toggle {
   display: none;
 }
