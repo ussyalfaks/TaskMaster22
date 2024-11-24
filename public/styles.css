@@ -257,12 +257,7 @@ button:hover {
 }
 
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  #task-filters {
-      flex-direction: column;
-  }
-}
+
 
 /* Login Page Specific Styles */
 #auth-container {
@@ -286,3 +281,9 @@ button:hover {
   flex: 1;
 }
 
+/* Responsive Design */
+@media (max-width: 768px) {
+  #task-filters {
+      flex-direction: column;
+  }
+}
