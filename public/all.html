@@ -10,11 +10,8 @@
     rel="stylesheet"/>
 </head>
 <body>
-    <div id="app">
-        <header>
-            <div id="user-info"></div>
-        </header>
-        <main>
+        <div class="loginDiv">
+            
             <div id="auth-container">
                 <h2 class="loginH">Login</h2>
                 <form id="login-form">
@@ -24,10 +21,14 @@
                 </form>
                 <p class="register">Need to manage your task an account? <a href="#" id="show-register">Register</a></p>
             </div>
+        </div>
 
 
             
             <div id="task-container" style="display: none;">
+                <div>
+                    <div id="user-info"></div>
+                </div>
                 <form id="task-form">
                     <input type="text" id="task-title" placeholder="Task Title" required>
                     <textarea id="task-description" placeholder="Task Description"></textarea>
@@ -51,8 +52,6 @@
                 </div>
                 <ul id="task-list" class="task-grid"></ul>
             </div>
-        </main>
-    </div>
     <script src="app.js"></script>
 </body>
 </html>

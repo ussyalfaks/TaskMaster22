@@ -33,26 +33,47 @@ async function handleLogin(e) {
     const username = document.getElementById('login-username').value;
     const password = document.getElementById('login-password').value;
 
+    // try {
+    //     const response = await fetch(`${API_URL}/auth/login`, {
+    //         method: 'POST',
+    //         headers: { 'Content-Type': 'application/json' },
+    //         body: JSON.stringify({ username, password }),
+    //         credentials: 'include',
+
+    //     });
+
+    //     if (!response.ok) {
+    //         throw new Error('Login failed');
+    //     }
+
+    //     const data = await response.json();
+    //     token = data.token;
+    //     localStorage.setItem('token', token);
+    //     showTaskContainer();
+    // } catch (error) {
+    //     alert('Login failed. Please try again.');
+    // }
     try {
         const response = await fetch(`${API_URL}/auth/login`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username, password }),
             credentials: 'include',
-
         });
-
+    
         if (!response.ok) {
-            throw new Error('Login failed');
+            const errorData = await response.json();
+            throw new Error(errorData.message || 'Invalid details');
         }
-
+    
         const data = await response.json();
         token = data.token;
         localStorage.setItem('token', token);
         showTaskContainer();
     } catch (error) {
-        alert('Login failed. Please try again.');
+        alert(error.message);
     }
+    
 }
 
 function showRegistrationForm() {
@@ -180,8 +201,43 @@ function renderTasks(tasks) {
     });
 }
 
+// async function handleAddTask(e) {
+//     e.preventDefault();
+//     const title = document.getElementById('task-title').value;
+//     const description = document.getElementById('task-description').value;
+//     const deadline = document.getElementById('task-deadline').value;
+//     const priority = document.getElementById('task-priority').value;
+
+//     try {
+//         const response = await fetch(`${API_URL}/tasks`, {
+//             method: 'POST',
+//             headers: {
+//                 'Content-Type': 'application/json',
+//                 'Authorization': `Bearer ${token}`,
+
+//             },
+//             body: JSON.stringify({ title, description, deadline, priority }),
+//             credentials: 'include',
+
+//         });
+
+//         if (!response.ok) {
+//             throw new Error('Failed to add task');
+//         }
+
+//         taskForm.reset();
+//         fetchTasks();
+//     } catch (error) {
+//         alert('Failed to add task. Please try again.');
+//     }
+// }
+
 async function handleAddTask(e) {
     e.preventDefault();
+    const addButton = taskForm.querySelector('button[type="submit"]');
+    addButton.disabled = true;
+    addButton.textContent = 'Adding...';
+
     const title = document.getElementById('task-title').value;
     const description = document.getElementById('task-description').value;
     const deadline = document.getElementById('task-deadline').value;
@@ -193,11 +249,8 @@ async function handleAddTask(e) {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`,
-
             },
             body: JSON.stringify({ title, description, deadline, priority }),
-            credentials: 'include',
-
         });
 
         if (!response.ok) {
@@ -208,8 +261,12 @@ async function handleAddTask(e) {
         fetchTasks();
     } catch (error) {
         alert('Failed to add task. Please try again.');
+    } finally {
+        addButton.disabled = false;
+        addButton.textContent = 'Add Task';
     }
 }
+
 
 async function handleEditTask(e) {
     const taskId = e.target.getAttribute('data-id');
