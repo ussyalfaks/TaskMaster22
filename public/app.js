@@ -252,51 +252,26 @@ async function handleEditTask(e) {
         }
     }
 }
-function showConfirmationModal(message) {
-    return new Promise((resolve) => {
-        const modal = document.createElement('div');
-        modal.innerHTML = `
-            <div class="modal">
-                <p>${message}</p>
-                <button id="confirm-yes">Yes</button>
-                <button id="confirm-no">No</button>
-            </div>
-        `;
-        document.body.appendChild(modal);
-
-        modal.querySelector('#confirm-yes').addEventListener('click', () => {
-            resolve(true);
-            modal.remove();
-        });
-
-        modal.querySelector('#confirm-no').addEventListener('click', () => {
-            resolve(false);
-            modal.remove();
-        });
-    });
-}
 
 async function handleDeleteTask(e) {
     const taskId = e.target.getAttribute('data-id');
-    const confirmed = await showConfirmationModal('Are you sure you want to delete this task?');
-    if (!confirmed) return;
+    if (confirm('Are you sure you want to delete this task?')) {
+        try {
+            const response = await fetch(`${API_URL}/tasks/${taskId}`, {
+                method: 'DELETE',
+                headers: { 'Authorization': `Bearer ${token}` },
+            });
 
-    try {
-        const response = await fetch(`${API_URL}/tasks/${taskId}`, {
-            method: 'DELETE',
-            headers: { 'Authorization': `Bearer ${token}` },
-        });
+            if (!response.ok) {
+                throw new Error('Failed to delete task');
+            }
 
-        if (!response.ok) {
-            throw new Error('Failed to delete task');
+            fetchTasks();
+        } catch (error) {
+            alert('Failed to delete task. Please try again.');
         }
-
-        fetchTasks();
-    } catch (error) {
-        alert('Failed to delete task. Please try again.');
     }
 }
-
 
 async function handleSearch() {
     const query = searchInput.value;
