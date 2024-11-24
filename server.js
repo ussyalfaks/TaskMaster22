@@ -9,11 +9,16 @@ const app = express();
 const PORT = process.env.PORT || 10000;
 
 // Middleware
-const allowedOrigins = ['https://task-master22.vercel.app/']; // Add your frontend origin(s) here
 
 app.use(cors({
-  origin: allowedOrigins,
-  credentials: true, // Allow cookies or credentials to be sent
+  origin: [
+    'https://task-master22.vercel.app/',
+
+  ],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  preflightContinue: false,
 }));
 app.options('*', cors());
 app.use(express.json());
