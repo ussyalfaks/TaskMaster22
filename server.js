@@ -13,6 +13,8 @@ const PORT = process.env.PORT || 10000;
 app.use(cors({
   origin: [
     'https://task-master22.vercel.app/',
+    'https://task-master22-6ru52ox0r-ussyalfaks-projects.vercel.app/',
+    'https://task-master22-6ru52ox0r-ussyalfaks-projects.vercel.app/',
 
   ],
   credentials: true,
