@@ -154,7 +154,7 @@ function showTaskContainer() {
 function handleLogout() {
     localStorage.removeItem('token');
     token = null;
-    showAuthContainer();
+    window.location.href = 'index.html'; 
 }
 
 async function fetchTasks() {
