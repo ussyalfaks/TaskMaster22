@@ -1,11 +1,13 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, Link, useLocation } from 'react-router-dom';
 import { CheckSquare, Menu, X } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
 export function Layout() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const { user, logout } = useAuth();
+  const location = useLocation();
+  const isHome = location.pathname === '/';
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -13,21 +15,36 @@ export function Layout() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
             <div className="flex">
-              <div className="flex-shrink-0 flex items-center">
+              <Link to="/" className="flex-shrink-0 flex items-center">
                 <CheckSquare className="h-8 w-8 text-indigo-600" />
                 <span className="ml-2 text-xl font-bold text-gray-900">TaskMaster</span>
-              </div>
+              </Link>
             </div>
             
             <div className="hidden sm:ml-6 sm:flex sm:items-center">
               {user ? (
-                <button
-                  onClick={logout}
-                  className="ml-3 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
+                <>
+                  <Link
+                    to="/dashboard"
+                    className="ml-8 inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-900"
+                  >
+                    Dashboard
+                  </Link>
+                  <button
+                    onClick={logout}
+                    className="ml-8 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
+                  >
+                    Logout
+                  </button>
+                </>
+              ) : !isHome && (
+                <Link
+                  to="/auth"
+                  className="ml-8 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
                 >
-                  Logout
-                </button>
-              ) : null}
+                  Sign In
+                </Link>
+              )}
             </div>
 
             <div className="flex items-center sm:hidden">
@@ -49,19 +66,34 @@ export function Layout() {
           <div className="sm:hidden">
             <div className="pt-2 pb-3 space-y-1">
               {user ? (
-                <button
-                  onClick={logout}
-                  className="block w-full text-left px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100"
+                <>
+                  <Link
+                    to="/dashboard"
+                    className="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100"
+                  >
+                    Dashboard
+                  </Link>
+                  <button
+                    onClick={logout}
+                    className="block w-full text-left px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100"
+                  >
+                    Logout
+                  </button>
+                </>
+              ) : !isHome && (
+                <Link
+                  to="/auth"
+                  className="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100"
                 >
-                  Logout
-                </button>
-              ) : null}
+                  Sign In
+                </Link>
+              )}
             </div>
           </div>
         )}
       </nav>
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main>
         <Outlet />
       </main>
     </div>

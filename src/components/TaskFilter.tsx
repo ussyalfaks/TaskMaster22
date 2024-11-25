@@ -16,7 +16,7 @@ export function TaskFilter({ onFilter }: TaskFilterProps) {
     if (deadline) params.append('deadline', deadline);
 
     try {
-      const response = await fetch(`'https://taskmaster22.onrender.com/api/tasks/filter?${params}`, {
+      const response = await fetch(`https://taskmaster22.onrender.com/api/tasks/filter?${params}`, {
         headers: {
           'Authorization': `Bearer ${token}`,
         },

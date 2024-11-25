@@ -12,7 +12,7 @@ export function TaskList({ tasks, onTaskUpdate }: TaskListProps) {
 
   const toggleTaskStatus = async (taskId: string, completed: boolean) => {
     try {
-      const response = await fetch(`https://taskmaster22.onrender.com/api/tasks/${taskId}`, {
+      const response = await fetch(`http://localhost:3000/api/tasks/${taskId}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',

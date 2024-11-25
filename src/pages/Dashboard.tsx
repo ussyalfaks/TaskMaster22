@@ -14,7 +14,7 @@ export function Dashboard() {
 
   const fetchTasks = async () => {
     try {
-      const response = await fetch('http://localhost:3000/api/tasks', {
+      const response = await fetch('https://taskmaster22.onrender.com/api/tasks', {
         headers: {
           'Authorization': `Bearer ${token}`,
         },

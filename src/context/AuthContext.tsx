@@ -33,7 +33,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       const data = await response.json();
       setUser(data.user);
       localStorage.setItem('token', data.token);
-      navigate('/');
+      navigate('/dashboard');
     } catch (error) {
       console.error('Login error:', error);
       throw error;
@@ -53,7 +53,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       const data = await response.json();
       setUser(data.user);
       localStorage.setItem('token', data.token);
-      navigate('/');
+      navigate('/dashboard');
     } catch (error) {
       console.error('Registration error:', error);
       throw error;
@@ -63,7 +63,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const logout = useCallback(() => {
     setUser(null);
     localStorage.removeItem('token');
-    navigate('/auth');
+    navigate('/');
   }, [navigate]);
 
   return (
