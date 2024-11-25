@@ -19,7 +19,7 @@ export function Home() {
      <div className="max-w-6xl mx-auto min-h-[70vh] flex flex-col md:flex-row items-center px-4 md:px-8">
        {/* Hero Content */}
        <div className="w-full md:w-1/2 text-center md:text-left mb-8 md:mb-0">
-         <h1 className="text-3xl md:text-4xl font-bold text-blue-600 capitalize mb-2">
+         <h1 className="text-3xl md:text-4xl font-extrabold text-blue-600 capitalize mb-2">
            Increase your productivity with the best task management software
          </h1>
          <p className="text-lg text-gray-600 mb-6">
@@ -27,7 +27,7 @@ export function Home() {
            every day with{' '}
            <strong className="text-blue-600 underline">Task Master</strong>.
          </p>
-         <Link to="">
+         <Link to="/auth">
            <button className="px-6 py-3 text-white bg-blue-600 rounded-full hover:bg-blue-800 transition-colors">
              Get Started
            </button>
