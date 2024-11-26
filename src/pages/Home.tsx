@@ -176,11 +176,7 @@ export function Home() {
                 Features
               </a>
             </li>
-            <li>
-              <a href="#pricing" className="text-gray-700 hover:text-blue-600">
-                Pricing
-              </a>
-            </li>
+            
             <li>
               <a href="#about" className="text-gray-700 hover:text-blue-600">
                 About Us
