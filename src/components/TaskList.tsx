@@ -73,7 +73,7 @@ export function TaskList({ tasks, onTaskUpdate }: TaskListProps) {
         <div key={task._id} className="hover:shadow-md transition-shadow duration-200">
           <div className="p-6">
             <div className="flex flex-col items-start sm:items-center justify-between space-y-4 sm:space-y-0">
-              <div className="flex items-start space-x-4 flex-1">
+              <div className="flex items-start space-x-4 w-96 flex-1">
                 <button
                   onClick={() => toggleTaskStatus(task._id, !task.completed)}
                   className="mt-1"
@@ -89,7 +89,7 @@ export function TaskList({ tasks, onTaskUpdate }: TaskListProps) {
                 </button>
                 <div className="space-y-1 w-80 flex-1">
                   <h3 className={`text-lg  w-80 font-medium ${
-                    task.completed ? 'line-through text-gray-500' : 'text-gray-900'
+                    task.completed ? 'line-through text-gray-500 w-80' : 'text-gray-900 w-80'
                   }`}>
                     {task.title}
                   </h3>
