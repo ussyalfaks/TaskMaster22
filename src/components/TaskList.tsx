@@ -57,7 +57,7 @@ export function TaskList({ tasks, onTaskUpdate }: TaskListProps) {
   };
 
   return (
-    <div className="mt-6 mx-2 bg-white shadow rounded-md">
+    <div className="mt-6 mx-2 bg-white overflow-hidden shadow rounded-md">
       <ul className=" divide-gray-200">
         {tasks.map((task) => (
           <li key={task._id} className="p-4 hover:bg-gray-50 my-4">
@@ -73,7 +73,7 @@ export function TaskList({ tasks, onTaskUpdate }: TaskListProps) {
                     <Circle className="h-6 w-6" />
                   )}
                 </button>
-                <div className=''>
+                <div className=' overflow-hidden'>
                   <p className={`text-md mx-5 font-medium text-gray-900 ${
                     task.completed ? 'line-through text-gray-500' : ''
                   }`}>
