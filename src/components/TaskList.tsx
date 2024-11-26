@@ -72,7 +72,7 @@ export function TaskList({ tasks, onTaskUpdate }: TaskListProps) {
       {tasks.map((task) => (
         <div key={task._id} className="hover:shadow-md transition-shadow duration-200">
           <div className="p-6">
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between space-y-4 sm:space-y-0">
+            <div className="flex flex-col items-start sm:items-center justify-between space-y-4 sm:space-y-0">
               <div className="flex items-start space-x-4 flex-1">
                 <button
                   onClick={() => toggleTaskStatus(task._id, !task.completed)}
@@ -87,7 +87,7 @@ export function TaskList({ tasks, onTaskUpdate }: TaskListProps) {
                     {task.completed ? 'Mark as incomplete' : 'Mark as complete'}
                   </span>
                 </button>
-                <div className="space-y-1 flex-1">
+                <div className="space-y-1 w-auto flex-1">
                   <h3 className={`text-lg font-medium ${
                     task.completed ? 'line-through text-gray-500' : 'text-gray-900'
                   }`}>
