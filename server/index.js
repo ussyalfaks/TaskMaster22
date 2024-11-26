@@ -10,7 +10,9 @@ import cookieParser from 'cookie-parser';
 dotenv.config();
 
 const app = express();
-
+app.get('/', (req, res) => {
+  res.send('App is running');
+});
 app.use(cors({
   origin: [
     'https://task-master22.vercel.app',
