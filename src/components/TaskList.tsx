@@ -58,7 +58,7 @@ export function TaskList({ tasks, onTaskUpdate }: TaskListProps) {
 
   return (
     <div className="mt-6 mx-2 bg-white overflow-hidden shadow rounded-md">
-      <ul className=" divide-gray-200">
+      <ul className=" divide-gray-200 mx-4 px-2">
         {tasks.map((task) => (
           <li key={task._id} className="p-4 hover:bg-gray-50 my-4">
             <div className="flex flex-col items-center my-4">
