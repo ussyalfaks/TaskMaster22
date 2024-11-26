@@ -35,7 +35,7 @@ export function Dashboard() {
   }, [user, token]);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 mr-10">
       <div className="flex justify-between items-center">
         <h1 className="text-2xl font-bold text-gray-900">Welcome, {user?.name}</h1>
         <button

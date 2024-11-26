@@ -48,7 +48,7 @@ export function TaskList({ tasks, onTaskUpdate }: TaskListProps) {
   const getPriorityIcon = (priority: string) => {
     switch (priority) {
       case 'high':
-        return <AlertCircle className="h-5 w-5 text-red-500" />;
+        return <AlertCircle className="h-5 w-5 text-red-500" /> ;
       case 'medium':
         return <AlertCircle className="h-5 w-5 text-yellow-500" />;
       default:
@@ -57,7 +57,7 @@ export function TaskList({ tasks, onTaskUpdate }: TaskListProps) {
   };
 
   return (
-    <div className="mt-6 bg-white shadow overflow-hidden rounded-md">
+    <div className="mt-6 mx-6 bg-white shadow overflow-hidden rounded-md">
       <ul className="divide-y divide-gray-200">
         {tasks.map((task) => (
           <li key={task._id} className="p-4 hover:bg-gray-50">
@@ -73,8 +73,8 @@ export function TaskList({ tasks, onTaskUpdate }: TaskListProps) {
                     <Circle className="h-6 w-6" />
                   )}
                 </button>
-                <div>
-                  <p className={`text-sm font-medium text-gray-900 ${
+                <div className='w-3/4'>
+                  <p className={`text-md font-medium text-gray-900 ${
                     task.completed ? 'line-through text-gray-500' : ''
                   }`}>
                     {task.title}
