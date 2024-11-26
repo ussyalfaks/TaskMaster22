@@ -35,7 +35,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/tasks', taskRoutes);
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://usmanalfaki01:igh4XoMLqxs7xxei@taskmaster.ef3xr.mongodb.net/?retryWrites=true&w=majority&appName=taskmaster' )
+mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://usmanalfaks:NLtJ%23FkN59cmpBx@taskmaster.dt1dx.mongodb.net/?retryWrites=true&w=majority&appName=TaskMaster' )
 .then(() => console.log('Connected to MongoDB'))
 .catch((err) => console.error('MongoDB connection error:', err));
 
