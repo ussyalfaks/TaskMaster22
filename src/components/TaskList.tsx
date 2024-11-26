@@ -58,49 +58,64 @@ export function TaskList({ tasks, onTaskUpdate }: TaskListProps) {
 
   return (
     <div className="mt-6 mx-6 bg-white shadow overflow-hidden rounded-md">
-      <ul className="divide-y divide-gray-200">
-        {tasks.map((task) => (
-          <li key={task._id} className="p-4 hover:bg-gray-50">
-            <div className="flex items-center my-4 justify-between">
-              <div className="flex items-center space-x-4">
-                <button
-                  onClick={() => toggleTaskStatus(task._id, !task.completed)}
-                  className="text-gray-400 hover:text-gray-500"
-                >
-                  {task.completed ? (
-                    <CheckCircle2 className="h-6 w-6 text-green-500" />
-                  ) : (
-                    <Circle className="h-6 w-6" />
-                  )}
-                </button>
-                <div className='w-2/3'>
-                  <p className={`text-md w-2/3 font-medium text-gray-900 ${
-                    task.completed ? 'line-through text-gray-500' : ''
-                  }`}>
-                    {task.title}
-                  </p>
-                  <p className="text-sm w-2/3 text-gray-500">{task.description}</p>
-                </div>
-              </div>
-              <div className="flex items-center space-x-4">
-                {getPriorityIcon(task.priority)}
-                {task.deadline && (
-                  <div className="flex items-center text-sm text-gray-500">
-                    <Clock className="h-4 w-4 mr-1" />
-                    {new Date(task.deadline).toLocaleDateString()}
-                  </div>
+    <ul className="divide-y w-full divide-gray-200">
+      {tasks.map((task) => (
+        <li key={task._id} className="p-4 hover:bg-gray-50">
+          <div className="flex items-start justify-between">
+            {/* Left Side: Task Details */}
+            <div className="flex items-start space-x-4 flex-grow">
+              <button
+                onClick={() => toggleTaskStatus(task._id, !task.completed)}
+                className="text-gray-400 hover:text-gray-500 flex-shrink-0"
+              >
+                {task.completed ? (
+                  <CheckCircle2 className="h-6 w-6 text-green-500" />
+                ) : (
+                  <Circle className="h-6 w-6" />
                 )}
-                <button
-                  onClick={() => deleteTask(task._id)}
-                  className="text-red-500 hover:text-red-700"
+              </button>
+  
+              <div className="flex flex-col w-2/3">
+                <p
+                  className={`text-md font-medium text-gray-900 truncate ${
+                    task.completed ? 'line-through text-gray-500' : ''
+                  }`}
+                  title={task.title} // Tooltip for full text
+                  style={{ whiteSpace: 'normal', wordWrap: 'break-word' }}
                 >
-                  <Trash2 className="h-5 w-5" />
-                </button>
+                  {task.title}
+                </p>
+                <p
+                  className="text-sm text-gray-500 truncate"
+                  title={task.description} // Tooltip for full text
+                  style={{ whiteSpace: 'normal', wordWrap: 'break-word' }}
+                >
+                  {task.description}
+                </p>
               </div>
             </div>
-          </li>
-        ))}
-      </ul>
-    </div>
+  
+            {/* Right Side: Priority, Deadline, and Delete */}
+            <div className="flex items-center space-x-4 flex-shrink-0">
+              {getPriorityIcon(task.priority)}
+              {task.deadline && (
+                <div className="flex items-center text-sm text-gray-500">
+                  <Clock className="h-4 w-4 mr-1" />
+                  {new Date(task.deadline).toLocaleDateString()}
+                </div>
+              )}
+              <button
+                onClick={() => deleteTask(task._id)}
+                className="text-red-500 hover:text-red-700"
+              >
+                <Trash2 className="h-5 w-5" />
+              </button>
+            </div>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
+  
   );
 }
