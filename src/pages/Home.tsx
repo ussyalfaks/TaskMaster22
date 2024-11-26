@@ -77,7 +77,7 @@ export function Home() {
         <img
           src={Bout}
           alt="TaskMaster"
-          className="w-full md:w-1/2 max-w-md rounded-lg shadow-lg mb-8 md:mb-0"
+          className="w-full mx-auto md:w-1/2 max-w-md rounded-lg shadow-lg mb-8 md:mb-0"
         />
 
         {/* Text */}

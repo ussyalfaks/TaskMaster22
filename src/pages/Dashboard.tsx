@@ -47,7 +47,8 @@ export function Dashboard() {
         </button>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <div className='block lg:hidden'>
+    <div className="grid grid-cols-1   lg:grid-cols-3 gap-6">
         <div className="lg:col-span-2">
           <TaskSearch onSearch={fetchTasks} />
           <TaskFilter onFilter={fetchTasks} />
@@ -56,6 +57,20 @@ export function Dashboard() {
           <TaskList tasks={tasks} onTaskUpdate={fetchTasks} />
         </div>
       </div>
+    </div>
+
+    <div className='hidden lg:block'>
+
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="lg:col-span-2">
+          <TaskSearch onSearch={fetchTasks} />
+          <TaskList tasks={tasks} onTaskUpdate={fetchTasks} />
+        </div>
+        <div>
+        <TaskFilter onFilter={fetchTasks} />
+        </div>
+      </div>
+    </div>
 
       {isFormOpen && (
         <TaskForm
