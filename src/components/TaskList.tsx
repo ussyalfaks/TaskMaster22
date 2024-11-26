@@ -88,7 +88,7 @@ export function TaskList({ tasks, onTaskUpdate }: TaskListProps) {
                   </span>
                 </button>
                 <div className="space-y-1 w-80 flex-1">
-                  <h3 className={`text-lg w-full font-medium ${
+                  <h3 className={`text-lg  w-80 font-medium ${
                     task.completed ? 'line-through text-gray-500' : 'text-gray-900'
                   }`}>
                     {task.title}
@@ -111,8 +111,7 @@ export function TaskList({ tasks, onTaskUpdate }: TaskListProps) {
                   onClick={() => deleteTask(task._id)}
                   className="w-full sm:w-auto"
                 >
-                  <Trash2 className="h-4 w-4 mr-2" />
-                  Delete
+                  <Trash2 className="h-4 w-4 mr-2 text-red-600" />
                 </button>
               </div>
             </div>
