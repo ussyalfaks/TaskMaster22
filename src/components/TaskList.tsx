@@ -96,7 +96,7 @@ export function TaskList({ tasks, onTaskUpdate }: TaskListProps) {
                   <p className="text-sm text-gray-500 break-words">{task.description}</p>
                 </div>
               </div>
-              <div className="flex flex-col sm:items-end space-y-2 sm:space-y-4 w-full sm:w-auto">
+              <div className="flex items-center space-y-2 w-full sm:w-auto">
                 <div className="flex items-center space-x-2">
                   {getPriorityIcon(task.priority)}
                   <span className="text-sm text-gray-500">{getPriorityText(task.priority)}</span>
