@@ -48,7 +48,7 @@ export function TaskList({ tasks, onTaskUpdate }: TaskListProps) {
   const getPriorityIcon = (priority: string) => {
     switch (priority) {
       case 'high':
-        return <AlertCircle className="h-5 w-5 text-red-500" />;
+        return <AlertCircle className="h-5 w-5 text-red-500" /> ;
       case 'medium':
         return <AlertCircle className="h-5 w-5 text-yellow-500" />;
       default:
@@ -56,27 +56,16 @@ export function TaskList({ tasks, onTaskUpdate }: TaskListProps) {
     }
   };
 
-  const getPriorityText = (priority: string) => {
-    switch (priority) {
-      case 'high':
-        return 'High';
-      case 'medium':
-        return 'Medium';
-      default:
-        return 'Low';
-    }
-  };
-
   return (
-    <div className="mt-6 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <ul className="divide-y divide-gray-200 bg-white shadow overflow-hidden sm:rounded-md">
+    <div className="mt-6 mx-6 max-w-7xl bg-white shadow overflow-hidden rounded-md">
+      <ul className="divide-y divide-gray-200">
         {tasks.map((task) => (
-          <li key={task._id} className="px-4 py-4 sm:px-6 hover:bg-gray-50">
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between space-y-2 sm:space-y-0 sm:space-x-4">
-              <div className="flex items-start min-w-0 space-x-4">
+          <li key={task._id} className="p-4 hover:bg-gray-50">
+            <div className="flex flex-col items-center my-4 justify-between">
+              <div className="flex w-4/6 items-center space-x-4">
                 <button
                   onClick={() => toggleTaskStatus(task._id, !task.completed)}
-                  className="flex-shrink-0 text-gray-400 hover:text-gray-500 mt-1"
+                  className="text-gray-400 hover:text-gray-500"
                 >
                   {task.completed ? (
                     <CheckCircle2 className="h-6 w-6 text-green-500" />
@@ -84,29 +73,26 @@ export function TaskList({ tasks, onTaskUpdate }: TaskListProps) {
                     <Circle className="h-6 w-6" />
                   )}
                 </button>
-                <div className="min-w-0 flex-1">
-                  <p className={`text-sm font-medium text-gray-900 ${
+                <div className=''>
+                  <p className={`text-md font-medium text-gray-900 ${
                     task.completed ? 'line-through text-gray-500' : ''
                   }`}>
                     {task.title}
                   </p>
-                  <p className="text-sm text-gray-500 break-words">{task.description}</p>
-                  {task.deadline && (
-                    <div className="flex items-center text-sm text-gray-500 mt-1">
-                      <Clock className="h-4 w-4 mr-1 flex-shrink-0" />
-                      <span>{new Date(task.deadline).toLocaleDateString()}</span>
-                    </div>
-                  )}
+                  <p className="text-sm w-2/5 text-gray-500">{task.description}</p>
                 </div>
               </div>
-              <div className="flex flex-col items-end space-y-2">
-                <div className="flex items-center space-x-1">
-                  {getPriorityIcon(task.priority)}
-                  <span className="text-sm text-gray-500">{getPriorityText(task.priority)}</span>
-                </div>
+              <div className="flex w-2/5 items-center space-x-4">
+                {getPriorityIcon(task.priority)}
+                {task.deadline && (
+                  <div className="flex items-center text-sm text-gray-500">
+                    <Clock className="h-4 w-4 mr-1" />
+                    {new Date(task.deadline).toLocaleDateString()}
+                  </div>
+                )}
                 <button
                   onClick={() => deleteTask(task._id)}
-                  className="text-red-500 hover:text-red-700 flex-shrink-0"
+                  className="text-red-500 hover:text-red-700"
                 >
                   <Trash2 className="h-5 w-5" />
                 </button>
@@ -118,4 +104,3 @@ export function TaskList({ tasks, onTaskUpdate }: TaskListProps) {
     </div>
   );
 }
-
