@@ -62,7 +62,7 @@ export function TaskList({ tasks, onTaskUpdate }: TaskListProps) {
         {tasks.map((task) => (
           <li key={task._id} className="p-4 hover:bg-gray-50">
             <div className="flex items-center my-4 justify-between">
-              <div className="flex items-center space-x-4">
+              <div className="flex w-4/6 items-center space-x-4">
                 <button
                   onClick={() => toggleTaskStatus(task._id, !task.completed)}
                   className="text-gray-400 hover:text-gray-500"
@@ -79,10 +79,10 @@ export function TaskList({ tasks, onTaskUpdate }: TaskListProps) {
                   }`}>
                     {task.title}
                   </p>
-                  <p className="text-sm text-gray-500">{task.description}</p>
+                  <p className="text-sm w-2/5 text-gray-500">{task.description}</p>
                 </div>
               </div>
-              <div className="flex items-center space-x-4">
+              <div className="flex w-[35%] items-center space-x-4">
                 {getPriorityIcon(task.priority)}
                 {task.deadline && (
                   <div className="flex items-center text-sm text-gray-500">

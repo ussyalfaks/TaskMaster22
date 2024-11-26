@@ -50,10 +50,10 @@ export function Dashboard() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="lg:col-span-2">
           <TaskSearch onSearch={fetchTasks} />
-          <TaskList tasks={tasks} onTaskUpdate={fetchTasks} />
+          <TaskFilter onFilter={fetchTasks} />
         </div>
         <div>
-          <TaskFilter onFilter={fetchTasks} />
+          <TaskList tasks={tasks} onTaskUpdate={fetchTasks} />
         </div>
       </div>
 
