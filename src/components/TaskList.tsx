@@ -61,7 +61,7 @@ export function TaskList({ tasks, onTaskUpdate }: TaskListProps) {
       <ul className="divide-y divide-gray-200">
         {tasks.map((task) => (
           <li key={task._id} className="p-4 hover:bg-gray-50">
-            <div className="flex items-center justify-between">
+            <div className="flex items-center my-4 justify-between">
               <div className="flex items-center space-x-4">
                 <button
                   onClick={() => toggleTaskStatus(task._id, !task.completed)}
@@ -73,13 +73,13 @@ export function TaskList({ tasks, onTaskUpdate }: TaskListProps) {
                     <Circle className="h-6 w-6" />
                   )}
                 </button>
-                <div className='w-3/4'>
-                  <p className={`text-md font-medium text-gray-900 ${
+                <div className='w-2/3'>
+                  <p className={`text-md w-2/3 font-medium text-gray-900 ${
                     task.completed ? 'line-through text-gray-500' : ''
                   }`}>
                     {task.title}
                   </p>
-                  <p className="text-sm text-gray-500">{task.description}</p>
+                  <p className="text-sm w-2/3 text-gray-500">{task.description}</p>
                 </div>
               </div>
               <div className="flex items-center space-x-4">
