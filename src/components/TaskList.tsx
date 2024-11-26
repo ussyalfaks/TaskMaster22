@@ -87,8 +87,8 @@ export function TaskList({ tasks, onTaskUpdate }: TaskListProps) {
                     {task.completed ? 'Mark as incomplete' : 'Mark as complete'}
                   </span>
                 </button>
-                <div className="space-y-1 w-auto flex-1">
-                  <h3 className={`text-lg font-medium ${
+                <div className="space-y-1 w-80 flex-1">
+                  <h3 className={`text-lg w-full font-medium ${
                     task.completed ? 'line-through text-gray-500' : 'text-gray-900'
                   }`}>
                     {task.title}
