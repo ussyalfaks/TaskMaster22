@@ -10,7 +10,11 @@ const router = createBrowserRouter(
   [
     {
       path: "/",
-      element: <Layout />,
+      element: (
+        <AuthProvider>
+          <Layout />
+        </AuthProvider>
+      ),
       children: [
         { index: true, element: <Home /> },
         { path: "dashboard", element: <Dashboard /> },
@@ -26,11 +30,7 @@ const router = createBrowserRouter(
 );
 
 function App() {
-  return (
-    <AuthProvider>
-      <RouterProvider router={router} />
-    </AuthProvider>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
