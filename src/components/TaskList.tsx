@@ -1,4 +1,3 @@
-import React from 'react';
 import { Task } from '../types';
 import { CheckCircle2, Circle, Trash2, Clock, AlertCircle } from 'lucide-react';
 
