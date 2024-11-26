@@ -57,7 +57,7 @@ export function TaskList({ tasks, onTaskUpdate }: TaskListProps) {
   };
 
   return (
-    <div className="mt-6 mx-6 max-w-7xl bg-white shadow overflow-hidden rounded-md">
+    <div className="mt-6 mx-6 bg-white shadow overflow-hidden rounded-md">
       <ul className="divide-y divide-gray-200">
         {tasks.map((task) => (
           <li key={task._id} className="p-4 hover:bg-gray-50">
@@ -74,15 +74,15 @@ export function TaskList({ tasks, onTaskUpdate }: TaskListProps) {
                   )}
                 </button>
                 <div className=''>
-                  <p className={`text-md font-medium text-gray-900 ${
+                  <p className={`text-md mx-5 font-medium text-gray-900 ${
                     task.completed ? 'line-through text-gray-500' : ''
                   }`}>
                     {task.title}
                   </p>
-                  <p className="text-sm w-2/5 text-gray-500">{task.description}</p>
+                  <p className="text-sm w-2/5 text-gray-500 mx-3">{task.description}</p>
                 </div>
               </div>
-              <div className="flex w-2/5 items-center space-x-4">
+              <div className="flex justify-start items-center space-x-4">
                 {getPriorityIcon(task.priority)}
                 {task.deadline && (
                   <div className="flex items-center text-sm text-gray-500">
