@@ -57,12 +57,12 @@ export function TaskList({ tasks, onTaskUpdate }: TaskListProps) {
   };
 
   return (
-    <div className="mt-6 mx-6 bg-white shadow overflow-hidden rounded-md">
-      <ul className="divide-y divide-gray-200">
+    <div className="mt-6 mx-2 bg-white shadow rounded-md">
+      <ul className=" divide-gray-200">
         {tasks.map((task) => (
-          <li key={task._id} className="p-4 hover:bg-gray-50">
-            <div className="flex flex-col items-center my-4 justify-between">
-              <div className="flex w-4/6 items-center space-x-4">
+          <li key={task._id} className="p-4 hover:bg-gray-50 my-4">
+            <div className="flex flex-col items-center my-4">
+              <div className="flex items-center space-x-4">
                 <button
                   onClick={() => toggleTaskStatus(task._id, !task.completed)}
                   className="text-gray-400 hover:text-gray-500"
@@ -79,7 +79,7 @@ export function TaskList({ tasks, onTaskUpdate }: TaskListProps) {
                   }`}>
                     {task.title}
                   </p>
-                  <p className="text-sm w-2/5 text-gray-500 mx-3">{task.description}</p>
+                  <p className="text-sm text-gray-500 mx-3">{task.description}</p>
                 </div>
               </div>
               <div className="flex justify-start items-center space-x-4">
