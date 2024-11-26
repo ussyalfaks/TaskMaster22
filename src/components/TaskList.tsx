@@ -68,7 +68,7 @@ export function TaskList({ tasks, onTaskUpdate }: TaskListProps) {
   };
 
   return (
-    <div className="mt-6 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-4">
+    <div className="mt-6 px-4 sm:px-6 lg:px-8 space-y-4">
       {tasks.map((task) => (
         <div key={task._id} className="hover:shadow-md transition-shadow duration-200">
           <div className="p-6">

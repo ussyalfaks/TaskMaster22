@@ -34,7 +34,7 @@ export function Layout() {
                   </li>
                 </ul>
                 <Link to="/auth">
-                  <button className=" bg-blue-600 hover:bg-indigo-700 text-white font-semibold px-4 py-2 rounded-3xl">
+                  <button className=" bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-3xl">
                     Login
                   </button>
                 </Link>
@@ -44,7 +44,7 @@ export function Layout() {
             {isLoggedIn && (
               <button
                 onClick={logout}
-                className="ml-auto bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md"
+                className="ml-auto bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md"
               >
                 Logout
               </button>
