@@ -88,18 +88,18 @@ export function TaskList({ tasks, onTaskUpdate }: TaskListProps) {
                   </span>
                 </button>
                 <div className="space-y-1 w-80 flex-1">
-                  <h3 className={`text-lg  w-80 font-medium ${
+                  <p className={`text-lg  w-80 font-medium break-words ${
                     task.completed ? 'line-through text-gray-500 w-80' : 'text-gray-900 w-80'
                   }`}>
                     {task.title}
-                  </h3>
+                  </p>
                   <p className="text-sm text-gray-500 break-words">{task.description}</p>
                 </div>
               </div>
-              <div className="flex items-center space-y-2 w-full sm:w-auto">
-                <div className="flex items-center space-x-2">
+              <div className="flex items-center w-full sm:w-auto">
+                <div className="flex items-center">
                   {getPriorityIcon(task.priority)}
-                  <span className="text-sm text-gray-500">{getPriorityText(task.priority)}</span>
+                  <span className="text-sm mx-2 text-gray-500">{getPriorityText(task.priority)}</span>
                 </div>
                 {task.deadline && (
                   <div className="flex items-center text-sm text-gray-500">
