@@ -53,10 +53,10 @@ export function TaskList({ tasks, onTaskUpdate }: TaskListProps) {
   return (
     <div className="mt-6 px-4 sm:px-6 lg:px-8 space-y-4">
       {tasks.map((task) => (
-        <div key={task._id} className="hover:shadow-md transition-shadow duration-200">
-          <div className="p-6 w-96">
+        <div key={task._id} className=" m-4 hover:shadow-md transition-shadow duration-200">
+          <div className="p-6 bg-white">
             <div className="flex flex-col items-start sm:items-center justify-between space-y-4 sm:space-y-0">
-              <div className="flex items-start w-96 flex-1">
+              <div className="flex items-start flex-1">
                 {/* <button
                   onClick={() => toggleTaskStatus(task._id, !task.completed)}
                   className="mt-1"
@@ -70,14 +70,14 @@ export function TaskList({ tasks, onTaskUpdate }: TaskListProps) {
                     {task.completed ? 'Mark as incomplete' : 'Mark as complete'}
                   </span>
                 </button> */}
-                <div className="space-y-1 w-80 flex-1">
-                  <p className={`text-lg  w-80 font-medium break-words`}>
+                <div className="space-y-1  flex-1 p-4">
+                  <p className={`text-lg   font-medium break-words`}>
                     {task.title}
                   </p>
                   <p className="text-sm text-gray-500 break-words">{task.description}</p>
                 </div>
               </div>
-              <div className="flex items-center w-full sm:w-auto">
+              <div className="flex items-center my-4 w-full sm:w-auto">
                 <div className="flex items-center">
                   {getPriorityIcon(task.priority)}
                   <span className="text-sm mx-2 text-gray-500">{getPriorityText(task.priority)}</span>
@@ -90,9 +90,8 @@ export function TaskList({ tasks, onTaskUpdate }: TaskListProps) {
                 )}
                 <button
                   onClick={() => deleteTask(task._id)}
-                  className="w-full sm:w-auto"
-                >
-                  <Trash2 className="h-4 w-4 mr-2 text-red-600" />
+                  className="w-full sm:w-auto">
+                  <Trash2 className="h-4 w-4 mx-2 text-red-600" />
                 </button>
               </div>
             </div>
