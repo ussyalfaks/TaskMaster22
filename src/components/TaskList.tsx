@@ -56,14 +56,9 @@ export function TaskList({ tasks, onTaskUpdate }: TaskListProps) {
         <div key={task._id} className=" m-4 hover:shadow-md transition-shadow duration-200">
           <div className="p-6 bg-white w-5/6">
             <div className="flex flex-col w-5/6 items-start sm:items-center justify-between space-y-4 sm:space-y-0">
-              <div className="flex items-start flex-1">
-              
-                <div className="space-y-1 w-full flex-1 p-4">
-                  <p className={`text-lg   font-medium break-words`}>
-                    {task.title}
-                  </p>
+              <div className="flex w-10/12 items-start flex-1">
+                  <p className={`text-lg font-medium break-words`}>{task.title}</p>
                   <p className="text-sm text-gray-500 break-words">{task.description}</p>
-                </div>
               </div>
               <div className="flex items-center my-4 w-full sm:w-auto">
                 <div className="flex items-center">
