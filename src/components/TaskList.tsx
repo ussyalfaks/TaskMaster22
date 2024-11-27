@@ -53,10 +53,10 @@ export function TaskList({ tasks, onTaskUpdate }: TaskListProps) {
   return (
     <div className="mt-6 px-4 sm:px-6 lg:px-8 space-y-4">
       {tasks.map((task) => (
-        <div key={task._id} className=" m-4 hover:shadow-md transition-shadow duration-200">
-          <div className="p-6 bg-white w-full">
+        <div key={task._id} className=" m-4">
+          <div className="p-6 bg-white w-full hover:shadow-md transition-shadow duration-200">
             <div className="flex flex-col w-5/6 items-start sm:items-center justify-between space-y-4 sm:space-y-0">
-              <div className="flex w-96 items-start flex-col">
+              <div className="flex w-full items-start flex-col">
                   <p className={`text-lg w-96 font-medium break-words`}>{task.title}</p>
                   <p className="text-sm w-96 text-gray-500 break-words">{task.description}</p>
               </div>
