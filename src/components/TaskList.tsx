@@ -57,10 +57,10 @@ export function TaskList({ tasks, onTaskUpdate }: TaskListProps) {
           <div className="p-6 bg-white w-full hover:shadow-md transition-shadow duration-200">
             <div className="flex flex-col w-11/12 items-start sm:items-center justify-between space-y-4 sm:space-y-0">
               <div className="flex w-full mx-2 items-start flex-col">
-                  <p className={`text-lg w-full font-medium break-words`}>{task.title}</p>
+                  <p className={`text-lg w-full font-medium capitalize break-words`}>{task.title}</p>
                   <p className="text-sm w-full text-gray-500 break-words">{task.description}</p>
               </div>
-              <div className="flex items-center my-4 w-full sm:w-auto">
+              <div className="flex items-center justify-start my-4 w-full sm:w-auto">
                 <div className="flex items-center">
                   {getPriorityIcon(task.priority)}
                   <span className="text-sm mx-2 text-gray-500">{getPriorityText(task.priority)}</span>
