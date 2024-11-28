@@ -79,7 +79,6 @@ export function Home() {
           alt="TaskMaster"
           className="w-full mx-auto md:w-1/2 max-w-md rounded-lg shadow-lg mb-8 md:mb-0"
         />
-
         {/* Text */}
         <div className="w-full md:w-1/2 px-4">
           <h2 className="text-3xl font-bold text-blue-600 mb-4">About Us</h2>
